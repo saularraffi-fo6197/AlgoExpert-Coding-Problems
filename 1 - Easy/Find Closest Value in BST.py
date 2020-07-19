@@ -17,7 +17,9 @@ def findClosestValueInBst(tree, target):
 # ================================================================================================
   
 # My attempt 2: average - O(log(n)) time | O(log(n)) space
-#               worst   - O(n) time | O(n) space
+#               worst   - O(n) time | O(n) space --> BST that is basically a linked list
+# space complexity is equal to time complexity (which here it is O(log(n))) because we are 
+#   creating new frames on the call stack every time we call the recursive function
 def findClosestValueInBstHelper(tree, target, closestVal):
 	if not tree:
 		return closestVal
@@ -41,7 +43,7 @@ def findClosestValueInBst(tree, target):
 # ================================================================================================
 
 # AlgoExpert solution 1: average - O(log(n)) time | O(log(n)) space
-#                        worst   - O(n) time | O(n) space
+#                        worst   - O(n) time | O(n) space --> BST that is basically a linked list
 def findClosestValueInBstHelper(tree, target, closest):
 	if tree is None:
 		return closest
@@ -76,12 +78,16 @@ def findClosestValueInBstHelper(tree, target, closest):
 			currentNode = currentNode.left
 		elif target > currentNode.value:
 			currentNode = currentNode.right
+        # difference between target and currentNode.value is 0 --> exit
 		else:
 			break
 	return closest
 	
 def findClosestValueInBst(tree, target):	
 	return findClosestValueInBstHelper(tree, target, tree.value)
+
+
+
 
 
 # This is the class of the input tree. Do not edit.
