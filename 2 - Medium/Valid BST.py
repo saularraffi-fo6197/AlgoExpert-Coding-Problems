@@ -1,4 +1,4 @@
-# My Attempt 1: O(log(n)) time | O(d) space 
+# My Attempt 1: O(n) time | O(d) space 
 #   where d is the depth of the tree		
 def validateBst(tree, rightParent=float("inf"), leftParent=float("-inf")):
 	if tree is None:
